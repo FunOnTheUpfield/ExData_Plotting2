@@ -9,22 +9,20 @@
 NEI <- readRDS("summarySCC_PM25.rds")
 SCC <- readRDS("Source_Classification_Code.rds")
 
-# Beware, the number of monitoring stations changes over time and not every station reports data.
-# Remove rows where a monitoring stations that did not report data one year
-NEI <- NEI[complete.cases(NEI), ]
+# We are interested in total emissions at each site, for each year.
+library(dplyr)
 
-# fips | 1999| 2002emissions | 2005emissions | 2008emissions
+totalemissions <- NEI %>%
+  group_by(fips,year) %>%
+  summarize(total_PM25 =sum(Emissions))
 
-emissions1999 <- NEI[NEI$year == '1999', c('fips', 'Emissions')]
-names(emissions1999) <- c("fips", "1999")
-emissions2002 <- NEI[NEI$year == '2002', c('fips', 'Emissions')]
-names(emissions2002) <- c("fips", "2002")
-emissions2005 <- NEI[NEI$year == '2005', c('fips', 'Emissions')]
-names(emissions2005) <- c("fips", "2005")
-emissions2008 <- NEI[NEI$year == '2008', c('fips', 'Emissions')]
-names(emissions2008) <- c("fips", "2008")
+#plot(totalemissions$year, log(totalemissions$total_PM25), 
+#     main = 'Changes in fine air pollutant levels over time' , 
+#     xlab = 'Year', ylab = expression('Log Total ' * PM[25]))
 
-nationalemissions <- cbind(emissions1999, emissions2002, emissions2005, emissions2008)
+# That graph doesn't give a very clear idea of the changes over time
 
-library(tidyr)
-gather(nationalemissions, fips)
+boxplot(log(total_PM25) ~ year, data=totalemissions, 
+        main ='Changes in fine particulate air pollution levels over time', 
+        xlab = 'Year', ylab = expression('Log Total ' * PM[25]))
+
