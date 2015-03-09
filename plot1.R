@@ -7,7 +7,6 @@
 # Plot PM2.5 emission from all sources for each of the years 1999, 2002, 2005, and 2008.
 
 NEI <- readRDS("summarySCC_PM25.rds")
-SCC <- readRDS("Source_Classification_Code.rds")
 
 # We are interested in total emissions at each site, for each year.
 library(dplyr)
@@ -16,13 +15,26 @@ totalemissions <- NEI %>%
   group_by(fips,year) %>%
   summarize(total_PM25 =sum(Emissions))
 
+
 #plot(totalemissions$year, log(totalemissions$total_PM25), 
 #     main = 'Changes in fine air pollutant levels over time' , 
 #     xlab = 'Year', ylab = expression('Log Total ' * PM[25]))
 
-# That graph doesn't give a very clear idea of the changes over time
+# The scatterplot doesn't give a very clear idea of the changes over time
+
+
+
+png(file = 'plot1.png', width = 480, height = 480, units = "px")
 
 boxplot(log(total_PM25) ~ year, data=totalemissions, 
         main ='Changes in fine particulate air pollution levels over time', 
         xlab = 'Year', ylab = expression('Log Total ' * PM[25]))
+
+dev.off()
+
+# This plot depicts all sites - not just the ones that have been there for all survey years.
+# The addition of new sites might affect the 'whole of survey' outcome
+# Especially if the new survey sites are in less polluted survey areas than the old survey sites.
+# To eliminate that potential problem, we should only be looking at 
+# the subset of sites that are included in each survey year.  (I haven't done that).
 
