@@ -4,7 +4,10 @@
 # By Simon Stainsby
 # Written 9 - 15 March 2015
 
-# Plot PM2.5 emission from all sources for each of the years 1999, 2002, 2005, and 2008.
+# This plot uses the base package to depict total PM2.5 emission from all sources 
+# for each of the years 1999, 2002, 2005, and 2008. 
+# This graph should help answer the question: 
+# "Have total emissions of PM2.5 decreased in the United States from 1999 to 2008?"
 
 NEI <- readRDS("summarySCC_PM25.rds")
 
@@ -27,7 +30,7 @@ totalemissions <- NEI %>%
 png(file = 'plot1.png', width = 480, height = 480, units = "px")
 
 boxplot(log(total_PM25) ~ year, data=totalemissions, 
-        main ='Changes in fine particulate air pollution levels over time', 
+        main ='Changes in United States fine particulate air pollution levels over time', 
         xlab = 'Year', ylab = expression('Log Total ' * PM[25]))
 
 dev.off()
@@ -36,5 +39,6 @@ dev.off()
 # The addition of new sites might affect the 'whole of survey' outcome
 # Especially if the new survey sites are in less polluted survey areas than the old survey sites.
 # To eliminate that potential problem, we should only be looking at 
-# the subset of sites that are included in each survey year.  (I haven't done that).
+# the subset of sites that are included in each survey year.  
+# (I haven't done that - because the question asks to plot ALL sites).
 
