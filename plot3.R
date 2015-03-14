@@ -17,17 +17,10 @@ rm(NEI)
 
 baltimore$year <- factor(baltimore$year)
 baltimore$type <- factor(baltimore$type)
-
 library(ggplot2)
 
 png(file = 'plot3.png', width = 480, height = 480, units = "px")
-
-g <- ggplot(baltimore, aes(y= log(Emissions), x= year) + geom_boxplot() + facet_wrap(~type) + labs(title = "Baltimore Air Pollution by emission source type"))
-# I'm a big fan of the box plot 
-
-print(g)
+ m <- ggplot(baltimore, aes(year , Emissions)) + geom_point() + ylim(0,400) + facet_wrap(~type) + geom_smooth(aes(group=1), method="lm", se=FALSE) + ggtitle("Baltimore Air Pollution by emission source type")
+print(m)
 dev.off()
 
-# m <- ggplot(baltimore, aes(year , Emissions)) + geom_point() + facet_wrap(~type) + geom_smooth(aes(group=1), method="lm", se=FALSE) + ggtitle("Baltimore Air Pollution by emission source type")
-#print(m)
-# This works, but breaks when I attempt to convert y into log(Emissions)
