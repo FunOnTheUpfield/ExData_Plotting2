@@ -30,7 +30,7 @@ totalecoalemissions <- coalpollution %>%
 png(file = 'plot4.png', width = 480, height = 480, units = "px")
 
 boxplot(log(total_PM25) ~ year, data=totalecoalemissions, 
-        main ='Changes in United States air pollution levels /n from coal related sources', 
+        main ="Changes in United States air pollution levels \n from coal related sources", 
         xlab = 'Year', ylab = expression('Log Total ' * PM[25]))
 
 #boring
