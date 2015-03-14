@@ -30,7 +30,7 @@ totalemissions <- NEI %>%
 png(file = 'plot1.png', width = 480, height = 480, units = "px")
 
 boxplot(log(total_PM25) ~ year, data=totalemissions, 
-        main ='Changes in United States fine particulate air pollution levels over time', 
+        main ='Changes in United States fine particulate air pollution levels', 
         xlab = 'Year', ylab = expression('Log Total ' * PM[25]))
 
 dev.off()
