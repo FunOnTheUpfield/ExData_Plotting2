@@ -12,19 +12,15 @@ The scripts plot1.R through plot4.R make graphs analysing the
 
 *plot1* uses the base package to depict total PM2.5 emission from all sources for each of the years 1999, 2002, 2005, and 2008. This graph should help answer the question: "Have total emissions of PM2.5 decreased in the United States from 1999 to 2008?"
 
-```{r fig.width=6, fig.height=6}
+![Total emissions are falling]](plot1.png)
 
-boxplot(log(total_PM25) ~ year, data=totalemissions, 
-        main ='Changes in United States fine particulate air pollution levels', 
-        xlab = 'Year', ylab = expression('Log Total ' * PM[25]))
-
-```
 It shows an overlall reduction of PM2.5 polution levels. 
 
 
 *plot2* uses the base package to depict total emissions of PM2.5 at Baltimore City, Maryland (fips == "24510") in the years  1999 to 2008.  This graph shoulud help answer the question "Have emissions of PM2.5 decreased in Baltimore City, Maryland?"
 
 ![PM2.5 levels are falling in Baltimore](plot2.png)
+
 It shows an overlall reduction of PM2.5 pollution levels in Baltimore.
 
 
