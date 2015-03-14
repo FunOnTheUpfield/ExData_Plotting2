@@ -20,7 +20,7 @@ totalemissions <- NEI %>%
 
 
 #plot(totalemissions$year, log(totalemissions$total_PM25), 
-#     main = 'Changes in fine air pollutant levels over time' , 
+#     main = 'Changes in fine air pollutant levels' , 
 #     xlab = 'Year', ylab = expression('Log Total ' * PM[25]))
 
 # The scatterplot doesn't give a very clear idea of the changes over time
