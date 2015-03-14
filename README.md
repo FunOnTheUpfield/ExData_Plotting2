@@ -11,7 +11,8 @@ The scripts plot1.R through plot4.R make graphs analysing the
 
 
 *plot1* uses the base package to depict total PM2.5 emission from all sources for each of the years 1999, 2002, 2005, and 2008. This graph should help answer the question: "Have total emissions of PM2.5 decreased in the United States from 1999 to 2008?"
-```{r}
+
+```{r fig.width=6, fig.height=6}
 
 boxplot(log(total_PM25) ~ year, data=totalemissions, 
         main ='Changes in United States fine particulate air pollution levels', 
