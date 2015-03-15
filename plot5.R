@@ -38,7 +38,7 @@ cityvehicles$fips[cityvehicles$fips == "24510"] <- "Baltimore"
 png(file = 'plot5.png', width = 480, height = 480, units = "px")
 
 
-f <- ggplot(cityvehicles, aes(year, Emissions)) + geom_point() + ylim(0,300) + geom_smooth(aes(group=1), method="lm", se=FALSE) + ggtitle("Air pollution from motor vehicle use - Baltimore")
+f <- ggplot(cityvehicles, aes(year, Emissions)) + geom_point() + ylim(0,50) + geom_smooth(aes(group=1), method="lm", se=FALSE) + ggtitle("Air pollution from motor vehicle use - Baltimore")
 print(f)
 
 
