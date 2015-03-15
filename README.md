@@ -48,7 +48,20 @@ Definitions: I have chosen "Emissions from Motor Vehicle Sources" to include Emi
 
 ![Baltimore vehicle emissions are lower overall, and have fell slightly.  Los Angeles vehicle emissions are higher and much more variable, over time and on average, have fallen more than Baltimore's](plot5.png)
 
-Motor vehicle emissions in bot Baltimore than Los Angeles have fallen since 1999.
+Motor vehicle emissions in both Baltimore than Los Angeles have fallen since 1999.
+Baltimore's fall in emissions is much smaller than Los Angeles
+
+The emissions data in Los Angeles is much more variable with some sites with very high emissions levels.
+
+
+
+*plot6* Compare emissions from motor vehicle sources in Baltimore City with emissions from motor vehicle sources in Los Angeles County, California (fips == "06037"). Which city has seen greater changes over time in motor vehicle emissions?
+
+Definitions: I have chosen "Emissions from Motor Vehicle Sources" to include Emissions from Highway Vehicle Use  (i.e. all SCS that include "Highway Veh")  I have excluded emissions from motor vehicle manufacture and maintenance and emissions from the transport, storage and sale of motor vehicle fuels.
+
+![Baltimore vehicle emissions are lower overall, and have fell slightly.  Los Angeles vehicle emissions are higher and much more variable, over time and on average, have fallen more than Baltimore's](plot6.png)
+
+Motor vehicle emissions in both Baltimore than Los Angeles have fallen since 1999.
 Baltimore's fall in emissions is much smaller than Los Angeles
 
 The emissions data in Los Angeles is much more variable with some sites with very high emissions levels.

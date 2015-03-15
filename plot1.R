@@ -1,5 +1,5 @@
 # plot1.R
-# Script 1 of 5 in repo https://github.com/FunOnTheUpfield/ExData_Plotting2
+# Script 1 of 6 in repo https://github.com/FunOnTheUpfield/ExData_Plotting2
 # Prepared as part of https://class.coursera.org/exdata-012/
 # By Simon Stainsby
 # Written 9 - 15 March 2015

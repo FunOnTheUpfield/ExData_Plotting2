@@ -1,5 +1,5 @@
-# plot5.R
-# Script 5 of 6 in repo https://github.com/FunOnTheUpfield/ExData_Plotting2
+# plot6.R
+# Script 6 of 6 in repo https://github.com/FunOnTheUpfield/ExData_Plotting2
 # Prepared as part of https://class.coursera.org/exdata-012/
 # By Simon Stainsby
 # Written 9 - 15 March 2015
@@ -27,18 +27,18 @@ SCC <- readRDS("Source_Classification_Code.rds")
 highwayvehicles <- SCC[grep("Highway Veh", SCC$Short.Name) , c('SCC','Short.Name')]
 
 # extract emissions observations from baltimore and Los Angeles
-baltimore <- NEI[NEI$fips == "24510", ]
+
+losangeles <- NEI[NEI$fips == "06037", ]
 
 library(ggplot2)
 cityvehicles <- cities[highwayvehicles$SCC %in% cities$SCC, ]
 
 # convert fips numbers to city names
-cityvehicles$fips[cityvehicles$fips == "24510"] <- "Baltimore"
+cityvehicles$fips[cityvehicles$fips == "06037"] <- "Los Angeles"
 
 
-png(file = 'plot5.png', width = 480, height = 480, units = "px")
-
+png(file = 'plot6.png', width = 480, height = 480, units = "px")
 # needs log of emissions
-f <- ggplot(cityvehicles, aes(year , Emissions)) + geom_point() + ylim(0,1000) + geom_smooth(aes(group=1), method="lm", se=FALSE) + ggtitle("Air pollution from motor vehicle use - Baltimore")
+f <- ggplot(cityvehicles, aes(year , Emissions)) + geom_point() +  geom_smooth(aes(group=1), method="lm", se=FALSE) + ylim(0,1000) + ggtitle("Air pollution from motor vehicle use Los Angeles")
 print(f)
 dev.off()
