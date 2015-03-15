@@ -31,7 +31,7 @@ highwayvehicles <- SCC[grep("Highway Veh", SCC$Short.Name) , c('SCC','Short.Name
 losangeles <- NEI[NEI$fips == "06037", ]
 
 library(ggplot2)
-cityvehicles <- cities[highwayvehicles$SCC %in% cities$SCC, ]
+cityvehicles <- losangeles[highwayvehicles$SCC %in% losangeles$SCC, ]
 
 # convert fips numbers to city names
 cityvehicles$fips[cityvehicles$fips == "06037"] <- "Los Angeles"
@@ -39,6 +39,6 @@ cityvehicles$fips[cityvehicles$fips == "06037"] <- "Los Angeles"
 
 png(file = 'plot6.png', width = 480, height = 480, units = "px")
 # needs log of emissions
-f <- ggplot(cityvehicles, aes(year , Emissions)) + geom_point() +  geom_smooth(aes(group=1), method="lm", se=FALSE) + ylim(0,1000) + ggtitle("Air pollution from motor vehicle use Los Angeles")
+f <- ggplot(cityvehicles, aes(year , Emissions)) + geom_point() + ylim(0,1000) + geom_smooth(aes(group=1), method="lm", se=FALSE) + ggtitle("Air pollution from motor vehicle use Los Angeles")
 print(f)
 dev.off()
